@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- Page header (title + small status text) -->
+    <header class="app-header">
+        <div class="app-header-left">
+            <div class="app-logo">Contact Manager</div>
+            <span class="app-tag">Final Project · Team</span>
+        </div>
+        <div class="app-header-right">
+            <span class="app-status-dot"></span>
+            <span class="app-status-text">Draft workspace</span>
+        </div>
+    </header>
+
+    <!-- Whole page content -->
+    <main class="app-main">
+
+        <!-- Search bar + buttons at the top -->
+        <section class="toolbar">
+            <div class="toolbar-left">
+                <label class="field field-inline">
+                    <span class="field-label">Search contacts</span>
+                    <div class="field-control">
+                        <input id="search" type="search" placeholder="Search by name, email, or phone" autocomplete="off" />
+                    </div>
+                </label>
+            </div>
+
+            <div class="toolbar-right">
+                <button type="button" class="btn btn-ghost">Clear filters</button>
+                <button type="button" class="btn btn-primary">+ New contact</button>
+            </div>
+        </section>
+
+        <!-- Main layout: left = list, right = form -->
+        <section class="layout">
+
+            <!-- Contact list box -->
+            <section class="panel panel-table">
+                <header class="panel-header">
+                    <div>
+                        <h2 class="panel-title">Contacts</h2>
+                        <p class="panel-subtitle">Your saved contacts show up here.</p>
+                    </div>
+                    <div class="panel-meta">
+                        <span class="pill">0 contacts</span>
+                    </div>
+                </header>
+
+                <div class="table-wrapper">
+                    <table class="contact-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Category</th>
+                            <th class="col-actions">Actions</th>
+                        </tr>
+                        </thead>
+
+                        <!-- Static content for now, JS teammate will handle this -->
+                        <tbody>
+                        <tr class="empty-row">
+                            <td colspan="5">
+                                <div class="empty-state">
+                                    <h3 class="empty-title">No contacts yet</h3>
+                                    <p class="empty-text">Use the form on the right to add one.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </section>
+
+            <!-- Contact form box -->
+            <section class="panel panel-form">
+                <header class="panel-header">
+                    <div>
+                        <h2 class="panel-title">Add contact</h2>
+                        <p class="panel-subtitle">Fill this out and save it.</p>
+                    </div>
+                </header>
+
+                <!-- Just the layout of the form (no JS yet) -->
+                <form class="contact-form" novalidate>
+
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field-label">Full name <span class="field-required">*</span></span>
+                            <div class="field-control">
+                                <input type="text" placeholder="Jordan Smith" required />
+                            </div>
+                        </label>
+
+                        <label class="field">
+                            <span class="field-label">Email <span class="field-required">*</span></span>
+                            <div class="field-control">
+                                <input type="email" placeholder="name@example.com" required />
+                            </div>
+                        </label>
+
+                        <label class="field">
+                            <span class="field-label">Phone <span class="field-required">*</span></span>
+                            <div class="field-control">
+                                <input type="tel" placeholder="(555) 123-4567" required />
+                            </div>
+                        </label>
+
+                        <label class="field">
+                            <span class="field-label">Category</span>
+                            <div class="field-control">
+                                <select>
+                                    <option value="">Select one</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="work">Work</option>
+                                    <option value="family">Family</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Notes box -->
+                    <label class="field">
+                        <span class="field-label">Notes</span>
+                        <div class="field-control">
+                            <textarea rows="4" placeholder="Anything extra"></textarea>
+                        </div>
+                    </label>
+
+                    <!-- Buttons at the bottom of the form -->
+                    <div class="form-footer">
+                        <p class="helper-text">You are creating a new contact.</p>
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-ghost">Clear</button>
+                            <button type="button" class="btn btn-primary">Save contact</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="app-footer">
+        <small>Contact Manager · Front end by Martin</small>
+    </footer>
+
+</div>
+
+<!-- Delete popup (not functional without JS) -->
+<div class="modal-backdrop" id="delete-modal">
+    <div class="modal">
+        <h2>Delete contact</h2>
+        <p>This will permanently remove this contact.</p>
+        <div class="modal-actions">
+            <button class="btn btn-ghost">Cancel</button>
+            <button class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

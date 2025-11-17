@@ -1,0 +1,295 @@
+/* Main colors + theme setup */
+:root {
+    --gradient-bg-start: #dff1ff;
+    --gradient-bg-end: #b9dfff;
+
+    --bg-page: linear-gradient(135deg, var(--gradient-bg-start), var(--gradient-bg-end));
+    --bg-surface: #ffffff;
+    --bg-soft: #eaf6ff;
+
+    --border-subtle: #bfdcff;
+    --border-strong: #7ab4ff;
+
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-soft: #64748b;
+    --text-on-primary: #ffffff;
+
+    --primary: #2563eb;
+    --primary-light: #4f9cff;
+    --primary-soft: #dbeafe;
+    --primary-strong: #1d4ed8;
+
+    --danger: #dc2626;
+    --danger-soft: #fee2e2;
+
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+
+    --shadow-soft: 0 18px 45px rgba(37, 99, 235, 0.10);
+    --shadow-subtle: 0 4px 14px rgba(37, 99, 235, 0.12);
+
+    --transition-fast: 160ms ease-out;
+    --transition-med: 220ms ease-out;
+}
+
+* { box-sizing: border-box; }
+
+/* Basic body setup */
+body {
+    margin: 0;
+    background: var(--bg-page);
+    background-attachment: fixed;
+    font-family: system-ui, sans-serif;
+    color: var(--text-main);
+}
+
+/* Whole app wrapper */
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top bar */
+.app-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(240, 248, 255, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.app-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-strong);
+}
+
+.app-tag {
+    background: #e0efff;
+    border: 1px solid var(--border-subtle);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+/* Main content area */
+.app-main {
+    padding: 1.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+/* Footer at bottom */
+.app-footer {
+    text-align: center;
+    padding: 0.75rem 2rem;
+    border-top: 1px solid var(--border-subtle);
+    background-color: #f9fafb90;
+}
+
+/* Search + button section */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Button setup (works for all buttons) */
+.btn {
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: var(--transition-fast);
+}
+
+/* Blue button */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+    color: white;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+    background: var(--primary-strong);
+    transform: translateY(-2px);
+}
+
+/* White button with border */
+.btn-ghost {
+    background: white;
+    border: 1px solid var(--border-subtle);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-soft);
+}
+
+/* Red button */
+.btn-danger {
+    background: linear-gradient(135deg, var(--danger), #b91c1c);
+    color: white;
+}
+
+/* Main layout grid (left list + right form) */
+.layout {
+    display: grid;
+    grid-template-columns: 3fr 2.3fr;
+    gap: 1.5rem;
+}
+
+/* Contact list panel */
+.panel-table {
+    background: #f2fbff;
+    border: 1px solid #b1e4ff;
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 35px rgba(79, 156, 255, 0.18);
+}
+
+/* Contact form panel */
+.panel-form {
+    background: #f3f8ff;
+    border: 1px solid #c7dcff;
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 12px 38px rgba(37, 99, 235, 0.12);
+}
+
+/* Header inside each box */
+.panel-header {
+    background: linear-gradient(to right, rgba(218, 233, 255, 0.6), rgba(225, 244, 255, 0.3));
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d5e7ff;
+    margin-bottom: 1rem;
+}
+
+/* Table container */
+.table-wrapper {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: white;
+    max-height: 480px;
+    overflow: auto;
+}
+
+/* Table formatting */
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.contact-table th {
+    background: var(--bg-soft);
+    color: var(--primary-strong);
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.6rem 0.9rem;
+}
+
+.contact-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Row hover effect */
+.contact-table tr:hover {
+    background-color: #e8f4ff;
+}
+
+/* Empty state design */
+.empty-state {
+    padding: 1.75rem 1rem;
+    background: #eef8ff;
+    border: 1px solid #c8e4ff;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+/* Category badges */
+.badge-soft {
+    background: var(--primary-soft);
+    color: var(--primary-strong);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+}
+
+/* Form layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+}
+
+.field-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Input & dropdown look */
+.field-control input,
+.field-control select,
+.field-control textarea {
+    width: 100%;
+    padding: 0.55rem;
+    border: 1px solid #bddbff;
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    transition: var(--transition-fast);
+}
+
+/* Input glow when clicked */
+.field-control input:focus,
+.field-control select:focus,
+.field-control textarea:focus {
+    border-color: #4f9cff;
+    box-shadow: 0 0 0 3px rgba(79, 156, 255, 0.28);
+}
+
+/* Form bottom area */
+.form-footer {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete popup */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.45);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-backdrop.is-open {
+    display: flex;
+}
+
+.modal {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Mobile tweaks */
+@media (max-width: 960px) {
+    .layout { grid-template-columns: 1fr; }
+}
