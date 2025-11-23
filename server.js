@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const Database = require('better-sqlite3');
-const Datastore = require('nedb');
+const Datastore = require('@seald-io/nedb');
 const { z } = require('zod');
 
 const app = express();
