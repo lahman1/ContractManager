@@ -46,7 +46,7 @@ CSC441 Web App Development Group Project - A web application to store and manage
 
 - **Backend/Database**: Express API, SQLite setup, MongoDB integration, API endpoints
 - **JavaScript/Interactivity**: All frontend JavaScript, API calls, search/sort/pagination, modal dialogs, notes feature
-- **UI/Design**: HTML structure, CSS styling, responsive layout, theme system
+- (Martin Aguirre) **UI/Design**: HTML structure, CSS styling, responsive layout, theme system
 
 ## API Endpoints
 
